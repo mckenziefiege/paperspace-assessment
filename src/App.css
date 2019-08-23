@@ -1,11 +1,16 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
 
-html {
+body {
   font-family: 'Open Sans', sans-serif;
 }
 
 .user {
   cursor: pointer;
+  position:absolute;
+  top: 25px;
+  right: 25px;
+  display: flex;
+  align-items: flex-start;
 }
 
 .user__photo {
@@ -22,26 +27,40 @@ html {
   padding: 5px 4px;
   border-radius: 50%;
   font-size: 14px;
+  margin-left: -15px;
 }
 
 .modal {
+  transition: all .2s;
   padding: 15px;
   border-radius: 5px;
-  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+  max-width: 65%;
+  box-shadow: 5px 10px 10px 5px rgba(0, 0, 0, 0.2);
+  margin: 120px auto;
 }
 
 .modal__exit {
   text-align: right;
   cursor: pointer;
+  color: rgb(194, 197, 201);
+  font-size: 20px;
+}
+
+.alert {
+  display: flex;
+  align-items: flex-start;
+  max-width: 75%;
+  margin: 20px;
 }
 
 .alert__type {
   text-transform: uppercase;
   display: inline-block;
   color: white;
-  padding: 5px 10px;
-  font-size: 14px;
+  padding: 5px 20px;
+  font-size: 12px;
   border-radius: 20px;
+  margin: 20px 0 10px;
 }
 
 .alert__type--blue {
@@ -50,4 +69,32 @@ html {
 
 .alert__type--green {
   background-color: #3aaa55;
+}
+
+.alert__title {
+  margin: 0;
+  font-size: 30px;
+}
+
+.alert__container {
+  margin: 0 30px;
+}
+
+.alert__content {
+  line-height: 30px;
+  margin-bottom: 30px;
+}
+
+.alert__date {
+  color: rgb(194, 197, 201);
+  font-size: 14px;
+}
+
+.alert__date-container {
+  width: 25%;
+}
+
+.alert__border {
+  border-bottom: 2px solid rgba(194, 197, 201, .8);
+  margin-bottom: 20px;
 }
