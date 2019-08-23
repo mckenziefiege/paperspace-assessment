@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-
 import Modal from './Components/Modal.js';
 import UserPhoto from './Components/UserPhoto.js';
-
 import './App.css';
 
 class App extends Component {
@@ -13,9 +11,11 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.setState({
-      alerts: [{"title": "Totally new dashboard", "date": "8/20/2019", "type": "New", "content": "We added this amazing new feature. It lets you do amazing new things and so much more. Try it out today to see for yourself how amazing it is!"}, {"title": "Faster load times", "date": "8/14/2019", "type": "Improvement", "content": "We added this amazing new feature. It lets you do amazing new things and so much more. Try it out today to see for yourself how amazing it is!"}]
-    })
+    fetch("https://api.github.com/gists/ab0d7ff570882e888acff25943d1a76e")
+      .then(resp => resp.json())
+      .then(resp => this.setState({
+        alerts: resp.files["releaseNotes.md"]
+      }))
   }
 
   updateModal = () => {
@@ -25,10 +25,28 @@ class App extends Component {
   }
 
   render() {
+    const {alerts, modalShown} = this.state
+
+    let arr = alerts.content && alerts.content.split("## ")
+    let newArr = arr && arr.filter(val => val !== "")
+
+    function chunkArray(arr, size){
+      let length = arr && arr.length;
+      let tempArray = [];
+
+      for ( let i = 0; i < length; i += size) {
+        let chunk = arr.slice(i, i + size);
+        tempArray.push(chunk);
+      }
+      return tempArray;
+    }
+
+    let result = chunkArray(newArr, 4);
+
     return (
       <div className="App">
-        <UserPhoto updateModal={this.updateModal} alerts={this.state.alerts}/>
-        {this.state.modalShown && <Modal alerts={this.state.alerts} updateModal={this.updateModal}/>}
+        <UserPhoto updateModal={this.updateModal} alerts={result.length}/>
+        {modalShown && <Modal alerts={result} updateModal={this.updateModal}/>}
       </div>
     );
   }
