@@ -1,1 +1,53 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
 
+html {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.user {
+  cursor: pointer;
+}
+
+.user__photo {
+  height: 75px;
+  border-radius: 50%;
+}
+
+.user__alerts {
+  background-color: rgb(232, 53, 35);
+  display: inline-block;
+  width: 20px;
+  text-align: center;
+  color: white;
+  padding: 5px 4px;
+  border-radius: 50%;
+  font-size: 14px;
+}
+
+.modal {
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+}
+
+.modal__exit {
+  text-align: right;
+  cursor: pointer;
+}
+
+.alert__type {
+  text-transform: uppercase;
+  display: inline-block;
+  color: white;
+  padding: 5px 10px;
+  font-size: 14px;
+  border-radius: 20px;
+}
+
+.alert__type--blue {
+  background-color: rgb(81, 116, 239);
+}
+
+.alert__type--green {
+  background-color: #3aaa55;
+}

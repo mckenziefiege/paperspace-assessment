@@ -1,14 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
+import Alert from './Alert.js';
 
-class Modal extends Component {
-
-  render() {
-    return (
-      <div>
-        Modal
-      </div>
-    )
-  }
+function Modal (props) {
+  let alerts = props.alerts.map(alert => <Alert alert={alert} key={alert.title}/>)
+  return (
+    <div className="modal">
+      <div className="modal__exit" onClick={props.updateModal}>X</div>
+      {alerts}
+    </div>
+  );
 }
-
 export default Modal;
