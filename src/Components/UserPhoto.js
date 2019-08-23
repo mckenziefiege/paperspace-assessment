@@ -8,7 +8,6 @@ function UserPhoto(props) {
       {props.alerts !== 0 && <div className="user__alerts">{props.alerts}</div>}
     </div>
   );
-
 }
 
 export default UserPhoto;

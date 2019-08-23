@@ -4,7 +4,6 @@ import UserPhoto from './Components/UserPhoto.js';
 import './App.css';
 
 class App extends Component {
-
   state = {
     modalShown: false,
     alerts: []
