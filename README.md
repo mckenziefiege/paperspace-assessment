@@ -2,6 +2,12 @@
 
 [Live Site](https://paperspace-assessment.netlify.com)
 
+
+## Before Clicking Avatar 
+<img width="425" alt="Screen Shot 2019-08-23 at 3 26 17 PM" src="https://user-images.githubusercontent.com/38592156/63618614-7dff8f00-c5ba-11e9-858a-d05e37d970d5.png">
+
+## After Clicking Avatar
+
 <img width="1397" alt="Screen Shot 2019-08-23 at 3 21 31 PM" src="https://user-images.githubusercontent.com/38592156/63618439-10536300-c5ba-11e9-9efe-62a849789072.png">
 
 
