@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withCookies } from 'react-cookie';
 import Modal from './Components/Modal.js';
 import UserPhoto from './Components/UserPhoto.js';
 import './App.css';
@@ -18,12 +19,15 @@ class App extends Component {
   }
 
   updateModal = () => {
+    this.props.cookies.set("onboarded", true, {path: "/"});
     this.setState({
       modalShown: !this.state.modalShown
     })
   }
 
   render() {
+    const { cookies } = this.props;
+
     const {alerts, modalShown} = this.state
 
     let arr = alerts.content && alerts.content.split("## ")
@@ -44,11 +48,11 @@ class App extends Component {
 
     return (
       <div className="App">
-        <UserPhoto updateModal={this.updateModal} alerts={result.length}/>
+        <UserPhoto cookies={cookies} updateModal={this.updateModal} alerts={result.length}/>
         {modalShown && <Modal alerts={result} updateModal={this.updateModal}/>}
       </div>
     );
   }
 }
 
-export default App;
+export default withCookies(App);

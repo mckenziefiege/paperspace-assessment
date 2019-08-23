@@ -1,11 +1,10 @@
 import React from 'react';
-import Photo from '../Images/blank-profile-photo.png';
 
 function UserPhoto(props) {
   return (
     <div className="user" onClick={props.updateModal}>
-      <img className="user__photo" src={Photo} alt="User"/>
-      {props.alerts !== 0 && <div className="user__alerts">{props.alerts}</div>}
+      <img className="user__photo" src="https://hips.hearstapps.com/wdy.h-cdn.co/assets/17/39/cola-0247.jpg?crop=0.668xw:1.00xh;0.151xw,0&resize=480:*" alt="User"/>
+      {props.cookies.cookies.onboarded !== "true" && <div className="user__alerts">{props.alerts}</div>}
     </div>
   );
 }
